@@ -1,0 +1,35 @@
+.absolute-loading {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: rgba($gray-200, 0.5);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.react-datepicker-wrapper {
+  input{
+    width: 100%;
+  }
+}
+
+.plan-box{
+  .details{
+    font-size: 14px;
+    line-height: 23px;
+  }
+  ul{
+    padding: 0px;
+  }
+}
+
+.shorten{
+  max-width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

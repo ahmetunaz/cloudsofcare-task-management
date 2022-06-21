@@ -1,0 +1,56 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "users": [
+    {
+      "id": 1,
+      "name": "Demo User",
+      "email": "demouser@cloudsofcare.com",
+      "password": "123123",
+      "role": "ADMIN"
+    },
+    {
+      "id": 2,
+      "name": "Ahmet Unaz",
+      "email": "ahmet@cloudsofcare.com",
+      "password": "123123",
+      "role": "ADMIN"
+    },
+    {
+      "name": "Deneme",
+      "email": "deneme@deneme.com",
+      "password": "123123",
+      "role": "MEMBER",
+      "id": 3
+    },
+    {
+      "name": "deneme 2",
+      "email": "ahmetunaz@gmail.com",
+      "password": "123qwe",
+      "role": "MEMBER",
+      "id": 4
+    },
+    {
+      "name": "deneme 3",
+      "email": "deneme3@gmail.com",
+      "password": "123123",
+      "role": "MEMBER",
+      "id": 5
+    }
+  ]
+}
