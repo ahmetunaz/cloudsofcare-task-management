@@ -59,7 +59,7 @@
       "id": 1,
       "name": "Pennademy UI/UX Design",
       "description": "UI components will be designed depending on business analysis with Adobe XD",
-      "case_id": 1,
+      "cases_id": 1,
       "assigned_to": 1,
       "assigned_by": 2,
       "is_completed": false,
@@ -67,15 +67,14 @@
       "created_at": "2022-06-20T22:19:38.300Z"
     },
     {
+      "id": 2,
       "name": "Pennademy Frontend",
       "description": "Frontend will be coded depending on business analysis",
       "case_id": 2,
       "assigned_to": 2,
       "assigned_by": 1,
-      "is_completed": false,
-      "completed_at": null,
-      "created_at": "2022-06-21T10:44:35.482Z",
-      "id": 2
+      "is_completed": true,
+      "completed_at": "2022-06-21T17:42:15.885Z"
     }
   ]
 }
