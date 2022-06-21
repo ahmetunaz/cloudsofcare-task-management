@@ -28,6 +28,10 @@ const tableColumns = [
     value: "Assigned To",
   },
   {
+    key: "assigned_by",
+    value: "Assigned By",
+  },
+  {
     key: "created_at",
     value: "Date",
     formatter: (row, value) => moment(value).format("DD/MM/YYYY"),
@@ -88,9 +92,13 @@ export const TaskList = ({ onRowClick }) => {
               const taskUser =
                 users.length > 0 &&
                 users.find(user => user.id === task.assigned_to);
+              const taskAssigner =
+                users.length > 0 &&
+                users.find(user => user.id === task.assigned_by);
               return {
                 ...task,
                 assigned_to: taskUser?.name || task.assigned_to,
+                assigned_by: taskAssigner?.name || task.assigned_by,
               };
             })}
             onRowClick={onRowClick}
