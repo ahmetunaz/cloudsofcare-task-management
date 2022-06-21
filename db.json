@@ -15,21 +15,21 @@
       "role": "ADMIN"
     },
     {
-      "name": "Deneme",
+      "name": "Graphic Designer",
       "email": "deneme@deneme.com",
       "password": "123123",
       "role": "MEMBER",
       "id": 3
     },
     {
-      "name": "deneme 2",
-      "email": "ahmetunaz@gmail.com",
-      "password": "123qwe",
+      "name": "Tester",
+      "email": "tester@gmail.com",
+      "password": "123123",
       "role": "MEMBER",
       "id": 4
     },
     {
-      "name": "deneme 3",
+      "name": "Backend Developer",
       "email": "deneme3@gmail.com",
       "password": "123123",
       "role": "MEMBER",
@@ -76,6 +76,116 @@
       "completed_at": "2022-06-21T18:29:30.408Z",
       "created_at": "2022-06-21T18:28:07.648Z",
       "id": 2
+    },
+    {
+      "id": 3,
+      "name": "Database Design",
+      "description": "UI components will be designed depending on business analysis with Adobe XD",
+      "case_id": 1,
+      "assigned_to": 1,
+      "assigned_by": 5,
+      "is_completed": false,
+      "completed_at": null,
+      "created_at": "2022-06-20T22:19:38.300Z"
+    },
+    {
+      "id": 4,
+      "name": "UI Tests",
+      "description": "UI components will be designed depending on business analysis with Adobe XD",
+      "case_id": 1,
+      "assigned_to": 1,
+      "assigned_by": 2,
+      "is_completed": false,
+      "completed_at": null,
+      "created_at": "2022-06-20T22:19:38.300Z"
+    },
+    {
+      "id": 5,
+      "name": "UX Tests",
+      "description": "UI components will be designed depending on business analysis with Adobe XD",
+      "case_id": 1,
+      "assigned_to": 2,
+      "assigned_by": 1,
+      "is_completed": false,
+      "completed_at": null,
+      "created_at": "2022-06-20T22:19:38.300Z"
+    },
+    {
+      "id": 6,
+      "name": "Backend Test",
+      "description": "UI components will be designed depending on business analysis with Adobe XD",
+      "case_id": 1,
+      "assigned_to": 1,
+      "assigned_by": 3,
+      "is_completed": false,
+      "completed_at": null,
+      "created_at": "2022-06-20T22:19:38.300Z"
+    },
+    {
+      "id": 7,
+      "name": "Model Desgin",
+      "description": "UI components will be designed depending on business analysis with Adobe XD",
+      "case_id": 2,
+      "assigned_to": 1,
+      "assigned_by": 2,
+      "is_completed": false,
+      "completed_at": null,
+      "created_at": "2022-06-20T22:19:38.300Z"
+    },
+    {
+      "id": 8,
+      "name": "XProduct UI/UX Design",
+      "description": "UI components will be designed depending on business analysis with Adobe XD",
+      "case_id": 2,
+      "assigned_to": 1,
+      "assigned_by": 3,
+      "is_completed": false,
+      "completed_at": null,
+      "created_at": "2022-06-20T22:19:38.300Z"
+    },
+    {
+      "id": 9,
+      "name": "YProduct DB Design",
+      "description": "UI components will be designed depending on business analysis with Adobe XD",
+      "case_id": 3,
+      "assigned_to": 1,
+      "assigned_by": 2,
+      "is_completed": false,
+      "completed_at": null,
+      "created_at": "2022-06-20T22:19:38.300Z"
+    },
+    {
+      "id": 10,
+      "name": "YProduct UI/UX Design",
+      "description": "UI components will be designed depending on business analysis with Adobe XD",
+      "case_id": 3,
+      "assigned_to": 1,
+      "assigned_by": 4,
+      "is_completed": false,
+      "completed_at": null,
+      "created_at": "2022-06-20T22:19:38.300Z"
+    },
+    {
+      "id": 11,
+      "name": "YProduct Backend Design",
+      "description": "UI components will be designed depending on business analysis with Adobe XD",
+      "case_id": 3,
+      "assigned_to": 2,
+      "assigned_by": 1,
+      "is_completed": false,
+      "completed_at": null,
+      "created_at": "2022-06-20T22:19:38.300Z"
+    },
+    {
+      "id": 12,
+      "name": "YProduct Testing",
+      "description": "UI components will be designed depending on business analysis with Adobe XD",
+      "case_id": 3,
+      "assigned_to": 1,
+      "assigned_by": 4,
+      "is_completed": false,
+      "completed_at": null,
+      "created_at": "2022-06-20T22:19:38.300Z"
     }
   ]
 }

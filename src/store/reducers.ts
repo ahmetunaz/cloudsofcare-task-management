@@ -12,6 +12,8 @@ import TaskState from "./task/reducer";
 
 import UserState from "./user/reducer";
 
+import DashboardState from "./dashboard/reducer";
+
 const rootReducer = combineReducers({
   // public
   Auth,
@@ -20,6 +22,7 @@ const rootReducer = combineReducers({
   CaseState,
   TaskState,
   UserState,
+  DashboardState,
 });
 
 export default rootReducer;

@@ -9,3 +9,5 @@ export * from "./case/actions";
 export * from "./task/actions";
 
 export * from "./user/actions";
+
+export * from "./dashboard/actions";

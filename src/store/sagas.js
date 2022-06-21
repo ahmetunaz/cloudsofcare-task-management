@@ -6,6 +6,7 @@ import AuthSaga from "./auth/saga";
 import CaseSaga from "./case/saga";
 import TaskSaga from "./task/saga";
 import UserSaga from "./user/saga";
+import DashboardSaga from "./dashboard/saga";
 
 export default function* rootSaga() {
   yield all([
@@ -15,5 +16,6 @@ export default function* rootSaga() {
     fork(CaseSaga),
     fork(TaskSaga),
     fork(UserSaga),
+    fork(DashboardSaga),
   ]);
 }
