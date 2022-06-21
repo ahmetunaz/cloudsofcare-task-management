@@ -7,10 +7,12 @@ import Register from "pages/Authentication/register/register";
 import Dashboard from "pages/Dashboard/dashboard";
 import Cases from "pages/Cases/cases";
 import Tasks from "pages/Tasks/tasks";
+import MyTasks from "pages/MyTasks/tasks";
 
 const authProtectedRoutes = [
   { path: "/dashboard", component: Dashboard },
   { path: "/tasks", component: Tasks },
+  { path: "/my-tasks", component: MyTasks },
 
   // this route should be at the end of all other routes
   // eslint-disable-next-line react/display-name

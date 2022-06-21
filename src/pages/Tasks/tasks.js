@@ -38,7 +38,7 @@ const Tasks = () => {
     <React.Fragment>
       <div className="page-content">
         <MetaTags>
-          <title>Analysis Tasks</title>
+          <title>Tasks Overview</title>
         </MetaTags>
         <Container fluid>
           <Button
@@ -49,7 +49,7 @@ const Tasks = () => {
           >
             <i className="fa fa-plus"></i> Add
           </Button>
-          <h4 className="mb-3">Analysis Tasks</h4>
+          <h4 className="mb-3">Tasks Overview</h4>
         </Container>
 
         <TaskList onRowClick={onRowClick} />
