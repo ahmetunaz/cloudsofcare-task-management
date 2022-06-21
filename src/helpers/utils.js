@@ -40,3 +40,15 @@ export const deleteItemFromArrayById = (array, id) => {
   if (index !== -1) newArray.splice(index, 1);
   return newArray;
 };
+
+export const usersToSelectOptions = users => {
+  if (typeof users === "object" && users.length > 0) {
+    return users.map(user => {
+      return {
+        value: user.id,
+        label: user.name,
+      };
+    });
+  }
+  return [];
+};

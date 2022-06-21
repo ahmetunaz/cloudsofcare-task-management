@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { SimpleTable } from "components/SimpleTable";
 import { useDataSource } from "hooks/useDataSource";
@@ -7,6 +7,8 @@ import { TaskDelete } from "./taskDelete";
 import Loading from "components/Loading/Index";
 import { Card, CardBody } from "reactstrap";
 import moment from "moment";
+import { TaskFilters } from "./taskFilters";
+import { useDispatch } from "react-redux";
 
 const tableColumns = [
   {
@@ -52,28 +54,51 @@ const tableColumns = [
 ];
 
 export const TaskList = ({ onRowClick }) => {
+  const dispatch = useDispatch();
   const { tasks, loading } = useDataSource(getTasks, state => state.TaskState);
   const { users } = useDataSource(getUsers, state => state.UserState);
 
+  const [filters, setFilters] = useState({
+    assigned_to: null,
+    assigned_by: null,
+    is_completed: null,
+    created_at_gte: null,
+    created_at_lte: null,
+  });
+
+  useEffect(() => {
+    dispatch(
+      getTasks({
+        ...filters,
+      })
+    );
+
+    return () => {};
+  }, [filters]);
+
   return (
-    <Card>
-      <CardBody>
-        <SimpleTable
-          columns={tableColumns}
-          rows={tasks.map(task => {
-            const taskUser =
-              users.length > 0 &&
-              users.find(user => user.id === task.assigned_to);
-            return {
-              ...task,
-              assigned_to: taskUser?.name || task.assigned_to,
-            };
-          })}
-          onRowClick={onRowClick}
-        />
-        {loading && <Loading />}
-      </CardBody>
-    </Card>
+    <>
+      <TaskFilters onChange={setFilters} filters={filters} users={users} />
+
+      <Card>
+        <CardBody>
+          <SimpleTable
+            columns={tableColumns}
+            rows={tasks.map(task => {
+              const taskUser =
+                users.length > 0 &&
+                users.find(user => user.id === task.assigned_to);
+              return {
+                ...task,
+                assigned_to: taskUser?.name || task.assigned_to,
+              };
+            })}
+            onRowClick={onRowClick}
+          />
+          {loading && <Loading />}
+        </CardBody>
+      </Card>
+    </>
   );
 };
 

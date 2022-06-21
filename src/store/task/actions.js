@@ -18,8 +18,9 @@ import {
   RESET_STATUS,
 } from "./actionTypes";
 
-export const getTasks = () => ({
+export const getTasks = payload => ({
   type: GET_TASKS,
+  payload,
 });
 
 export const getTasksSuccess = payload => ({

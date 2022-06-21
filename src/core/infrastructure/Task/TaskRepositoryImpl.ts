@@ -10,8 +10,20 @@ import services from "../Services";
 import { serializeDTO } from "helpers/utils";
 
 export class TaskRepositoryImpl implements TaskRepository {
-  async GetAll(): Promise<Task[]> {
-    const items = await services.api.getTasks();
+  async GetAll(
+    assigned_to: number,
+    assigned_by: number,
+    is_completed: boolean,
+    created_at_gte: string,
+    created_at_lte: string
+  ): Promise<Task[]> {
+    const items = await services.api.getTasks(
+      assigned_to,
+      assigned_by,
+      is_completed,
+      created_at_gte,
+      created_at_lte
+    );
 
     return items.map(
       (item: TaskDTO) =>

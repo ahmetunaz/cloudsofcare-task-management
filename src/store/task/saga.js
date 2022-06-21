@@ -43,11 +43,24 @@ function* fetchTask({ payload }) {
   }
 }
 
-function* fetchTasks() {
+function* fetchTasks({ payload }) {
+  const {
+    assigned_to,
+    assigned_by,
+    is_completed,
+    created_at_gte,
+    created_at_lte,
+  } = payload || {};
   try {
     const TaskRepo = new TaskRepositoryImpl();
     const TaskService = new TaskServiceImpl(TaskRepo);
-    const response = yield TaskService.GetAll();
+    const response = yield TaskService.GetAll(
+      assigned_to,
+      assigned_by,
+      is_completed,
+      created_at_gte,
+      created_at_lte
+    );
     yield put(getTasksSuccess(response));
   } catch (error) {
     yield put(getTasksFail(error));

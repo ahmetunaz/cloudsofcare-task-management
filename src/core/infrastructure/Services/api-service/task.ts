@@ -13,8 +13,29 @@ export const getTask = async (id: number): Promise<any> => {
   throw "An error occurred! Please try again later.";
 };
 
-export const getTasks = async (): Promise<any> => {
-  const response = await client.get("tasks");
+export const getTasks = async (
+  assigned_to: number,
+  assigned_by: number,
+  is_completed: boolean,
+  created_at_gte: string,
+  created_at_lte: string
+): Promise<any> => {
+  let filters = [];
+  if (assigned_to) filters.push(`assigned_to=${assigned_to}`);
+  if (assigned_by) filters.push(`assigned_by=${assigned_by}`);
+  if (is_completed !== null) filters.push(`is_completed=${is_completed}`);
+  if (created_at_gte)
+    filters.push(
+      `created_at_gte=${moment(created_at_gte).format("YYYY-MM-DD")}`
+    );
+  if (created_at_lte)
+    filters.push(
+      `created_at_lte=${moment(created_at_lte).format(
+        "YYYY-MM-DDT00:00:00.000[Z]"
+      )}`
+    );
+
+  const response = await client.get(`tasks?${filters.join("&")}`);
   const { data, status } = response;
 
   if (status >= 200 && status <= 299) {
@@ -47,7 +68,7 @@ export const updateTask = async (payload: UpdateTaskDTO): Promise<any> => {
     ...payload,
     completed_at: payload.is_completed ? moment() : null,
   };
-  const response = await client.put(`tasks/${payload.id}`, postData);
+  const response = await client.patch(`tasks/${payload.id}`, postData);
 
   const { data, status } = response;
 

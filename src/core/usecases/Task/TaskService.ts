@@ -3,7 +3,13 @@ import { TaskRepository } from "core/entities/Task/TaskRepository";
 import { CreateTaskDTO, UpdateTaskDTO } from "core/entities/Task/TaskTypes";
 
 export interface TaskService {
-  GetAll(): Promise<Task[]>;
+  GetAll(
+    assigned_to: number,
+    assigned_by: number,
+    is_completed: boolean,
+    created_at_gte: string,
+    created_at_lte: string
+  ): Promise<Task[]>;
   GetById(id: number): Promise<Task>;
   Create(data: CreateTaskDTO): Promise<Task>;
   Update(data: UpdateTaskDTO): Promise<Task>;
@@ -17,8 +23,20 @@ export class TaskServiceImpl implements TaskService {
     this.taskRepo = tr;
   }
 
-  async GetAll(): Promise<Task[]> {
-    return this.taskRepo.GetAll();
+  async GetAll(
+    assigned_to: number,
+    assigned_by: number,
+    is_completed: boolean,
+    created_at_gte: string,
+    created_at_lte: string
+  ): Promise<Task[]> {
+    return this.taskRepo.GetAll(
+      assigned_to,
+      assigned_by,
+      is_completed,
+      created_at_gte,
+      created_at_lte
+    );
   }
 
   async GetById(id: number): Promise<Task> {
