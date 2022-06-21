@@ -35,7 +35,7 @@ function* fetchCase({ payload }) {
   try {
     const CaseRepo = new CaseRepositoryImpl();
     const CaseService = new CaseServiceImpl(CaseRepo);
-    const response = yield CaseService.GetCase(payload);
+    const response = yield CaseService.GetById(payload);
     yield put(getCaseSuccess(response));
   } catch (error) {
     yield put(getCaseFail(error));
@@ -47,7 +47,7 @@ function* fetchCases() {
   try {
     const CaseRepo = new CaseRepositoryImpl();
     const CaseService = new CaseServiceImpl(CaseRepo);
-    const response = yield CaseService.GetCases();
+    const response = yield CaseService.GetAll();
     yield put(getCasesSuccess(response));
   } catch (error) {
     yield put(getCasesFail(error));
@@ -59,7 +59,7 @@ function* createCase({ payload }) {
   try {
     const CaseRepo = new CaseRepositoryImpl();
     const CaseService = new CaseServiceImpl(CaseRepo);
-    const response = yield CaseService.CreateCase(payload);
+    const response = yield CaseService.Create(payload);
     yield put(createCaseSuccess(response));
     yield put(resetState(response));
     yield delay(3000);
@@ -74,7 +74,7 @@ function* updateCase({ payload }) {
   try {
     const CaseRepo = new CaseRepositoryImpl();
     const CaseService = new CaseServiceImpl(CaseRepo);
-    const response = yield CaseService.UpdateCase(payload);
+    const response = yield CaseService.Update(payload);
     yield put(updateCaseSuccess(response));
     yield delay(3000);
     yield put(resetStatus(response));
@@ -88,7 +88,7 @@ function* deleteCase({ payload }) {
   try {
     const CaseRepo = new CaseRepositoryImpl();
     const CaseService = new CaseServiceImpl(CaseRepo);
-    const response = yield CaseService.DeleteCase(payload);
+    const response = yield CaseService.Delete(payload);
     yield put(deleteCaseSuccess(response));
     yield delay(3000);
     yield put(resetStatus());

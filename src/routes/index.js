@@ -5,6 +5,7 @@ import Login from "pages/Authentication/login/login";
 import Logout from "pages/Authentication/logout/logout";
 import Register from "pages/Authentication/register/register";
 import Dashboard from "pages/Dashboard/dashboard";
+import Cases from "pages/Cases/cases";
 
 const authProtectedRoutes = [
   { path: "/dashboard", component: Dashboard },
@@ -18,7 +19,7 @@ const authProtectedRoutes = [
   },
 ];
 
-const adminProtectedRoutes = [];
+const adminProtectedRoutes = [{ path: "/analysis-cases", component: Cases }];
 
 const publicRoutes = [
   { path: "/register", component: Register },

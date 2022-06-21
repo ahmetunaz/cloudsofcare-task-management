@@ -21,3 +21,22 @@ export const generateAuthData = user => {
     user: user,
   };
 };
+
+export const capitalize = str => str.charAt(0).toUpperCase() + str.slice(1);
+
+export const updateArrayItem = (array, item) => {
+  let newArray = [...array];
+  const index = newArray.findIndex(elem => elem.id === item.id);
+  if (index !== -1) {
+    const newItem = { ...array[index], ...item };
+    newArray.splice(index, 1, newItem);
+  }
+  return newArray;
+};
+
+export const deleteItemFromArrayById = (array, id) => {
+  let newArray = [...array];
+  const index = newArray.findIndex(elem => elem.id === id);
+  if (index !== -1) newArray.splice(index, 1);
+  return newArray;
+};

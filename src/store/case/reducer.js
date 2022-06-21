@@ -1,4 +1,5 @@
-import { CreateCaseDTO } from "core/entities/Case/CaseTypes";
+import { Case } from "core/entities/Case/Case";
+import { deleteItemFromArrayById, updateArrayItem } from "helpers/utils";
 import {
   GET_CASE,
   GET_CASE_SUCCESS,
@@ -6,6 +7,7 @@ import {
   GET_CASES,
   GET_CASES_SUCCESS,
   GET_CASES_FAIL,
+  CREATE_CASE,
   CREATE_CASE_SUCCESS,
   CREATE_CASE_FAIL,
   UPDATE_CASE,
@@ -75,11 +77,11 @@ const CaseState = (state = INIT_STATE, action) => {
       };
 
     case CREATE_CASE_SUCCESS:
-      const createPackages = [...state.cases, action.payload];
+      const createCases = [...state.cases, action.payload];
       return {
         ...state,
         case: action.payload,
-        cases: createPackages,
+        cases: createCases,
         saving: false,
         success: true,
       };
@@ -99,11 +101,11 @@ const CaseState = (state = INIT_STATE, action) => {
       };
 
     case UPDATE_CASE_SUCCESS:
-      const updatePackages = updateArrayItem(state.cases, action.payload);
+      const updateCases = updateArrayItem(state.cases, action.payload);
       return {
         ...state,
         case: action.payload,
-        cases: updatePackages,
+        cases: updateCases,
         saving: false,
         success: true,
       };
@@ -111,7 +113,6 @@ const CaseState = (state = INIT_STATE, action) => {
     case UPDATE_CASE_FAIL:
       return {
         ...state,
-
         saving: false,
         success: false,
       };
@@ -125,14 +126,11 @@ const CaseState = (state = INIT_STATE, action) => {
       };
 
     case DELETE_CASE_SUCCESS:
-      const deletePackages = deleteItemFromArrayById(
-        state.cases,
-        action.payload
-      );
+      const deleteCases = deleteItemFromArrayById(state.cases, action.payload);
       return {
         ...state,
         case: {},
-        cases: deletePackages,
+        cases: deleteCases,
         deleted: action.payload,
         saving: false,
         success: true,
@@ -148,7 +146,7 @@ const CaseState = (state = INIT_STATE, action) => {
       };
 
     case RESET_STATE:
-      const newCase = new CreateCaseDTO();
+      const newCase = new Case(0, "");
       return {
         ...state,
         case: { ...newCase },

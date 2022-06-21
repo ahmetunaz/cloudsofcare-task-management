@@ -6,5 +6,5 @@ export interface CaseRepository {
   GetById(id: number): Promise<Case>;
   Create(data: CreateCaseDTO): Promise<Case>;
   Update(data: UpdateCaseDTO): Promise<Case>;
-  Delete(id: number): Promise<Case>;
+  Delete(id: number): Promise<number>;
 }

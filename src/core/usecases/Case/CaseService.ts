@@ -7,7 +7,7 @@ export interface CaseService {
   GetById(id: number): Promise<Case>;
   Create(data: CreateCaseDTO): Promise<Case>;
   Update(data: UpdateCaseDTO): Promise<Case>;
-  Delete(id: number): Promise<Case>;
+  Delete(id: number): Promise<number>;
 }
 
 export class CaseServiceImpl implements CaseService {
@@ -33,7 +33,7 @@ export class CaseServiceImpl implements CaseService {
     return this.caseRepo.Update(data);
   }
 
-  async Delete(id: number): Promise<Case> {
+  async Delete(id: number): Promise<number> {
     return this.caseRepo.Delete(id);
   }
 }

@@ -36,9 +36,9 @@ export class CaseRepositoryImpl implements CaseRepository {
     return new Case(item.id, item.name);
   }
 
-  async Delete(id: number): Promise<Case> {
+  async Delete(id: number): Promise<number> {
     await services.api.deleteCase(id);
 
-    return new CaseDTO();
+    return id;
   }
 }
