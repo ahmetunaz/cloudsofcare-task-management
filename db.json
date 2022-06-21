@@ -1,21 +1,4 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  },
   "users": [
     {
       "id": 1,
@@ -51,6 +34,37 @@
       "password": "123123",
       "role": "MEMBER",
       "id": 5
+    }
+  ],
+  "cases": [
+    {
+      "id": 1,
+      "name": "UI/UX Design"
+    },
+    {
+      "id": 2,
+      "name": "Frontend Development"
+    },
+    {
+      "id": 3,
+      "name": "Backend Development"
+    },
+    {
+      "id": 4,
+      "name": "Deployment"
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "name": "Pennademy UI/UX Design",
+      "description": "UI components will be designed depending on business analysis with Adobe XD",
+      "case_id": 1,
+      "assigned_to": 1,
+      "assigned_by": 2,
+      "is_completed": false,
+      "completed_at": null,
+      "created_at": "2022-06-20T22:19:38.300Z"
     }
   ]
 }
