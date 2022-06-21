@@ -32,7 +32,7 @@ DateInput.propTypes = {
 
 DateInput.displayName = "DateInput";
 
-export const TaskFilters = ({ filters, users, onChange }) => {
+export const TaskFilters = ({ filters, users, cases, onChange }) => {
   const [newFilters, setNewFilters] = useState({ ...filters });
   const { is_completed, created_at_gte, created_at_lte } = newFilters;
 
@@ -51,6 +51,22 @@ export const TaskFilters = ({ filters, users, onChange }) => {
     <Card>
       <CardBody>
         <Row>
+          <Col>
+            <FormGroup className="mb-2 me-sm-2 mb-sm-0">
+              <Label className="me-sm-2" for="case_id">
+                Case
+              </Label>
+              <Select
+                options={usersToSelectOptions(cases)}
+                onChange={option =>
+                  handleOnChange({
+                    case_id: option !== null ? Number(option.value) : null,
+                  })
+                }
+                isClearable
+              />
+            </FormGroup>
+          </Col>
           <Col>
             <FormGroup className="mb-2 me-sm-2 mb-sm-0">
               <Label className="me-sm-2" for="assigned_by">
@@ -148,5 +164,6 @@ export const TaskFilters = ({ filters, users, onChange }) => {
 TaskFilters.propTypes = {
   filters: PropTypes.object.isRequired,
   users: PropTypes.array.isRequired,
+  cases: PropTypes.array.isRequired,
   onChange: PropTypes.func.isRequired,
 };

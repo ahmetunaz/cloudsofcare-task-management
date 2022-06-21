@@ -4,6 +4,7 @@ import { CreateTaskDTO, UpdateTaskDTO } from "core/entities/Task/TaskTypes";
 
 export interface TaskService {
   GetAll(
+    case_id: number,
     assigned_to: number,
     assigned_by: number,
     is_completed: boolean,
@@ -24,6 +25,7 @@ export class TaskServiceImpl implements TaskService {
   }
 
   async GetAll(
+    case_id: number,
     assigned_to: number,
     assigned_by: number,
     is_completed: boolean,
@@ -31,6 +33,7 @@ export class TaskServiceImpl implements TaskService {
     created_at_lte: string
   ): Promise<Task[]> {
     return this.taskRepo.GetAll(
+      case_id,
       assigned_to,
       assigned_by,
       is_completed,

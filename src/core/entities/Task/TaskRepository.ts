@@ -3,6 +3,7 @@ import { CreateTaskDTO, UpdateTaskDTO } from "./TaskTypes";
 
 export interface TaskRepository {
   GetAll(
+    case_id: number,
     assigned_to: number,
     assigned_by: number,
     is_completed: boolean,

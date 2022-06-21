@@ -14,6 +14,7 @@ export const getTask = async (id: number): Promise<any> => {
 };
 
 export const getTasks = async (
+  case_id: number,
   assigned_to: number,
   assigned_by: number,
   is_completed: boolean,
@@ -21,6 +22,7 @@ export const getTasks = async (
   created_at_lte: string
 ): Promise<any> => {
   let filters = [];
+  if (case_id) filters.push(`case_id=${case_id}`);
   if (assigned_to) filters.push(`assigned_to=${assigned_to}`);
   if (assigned_by) filters.push(`assigned_by=${assigned_by}`);
   if (is_completed !== null) filters.push(`is_completed=${is_completed}`);

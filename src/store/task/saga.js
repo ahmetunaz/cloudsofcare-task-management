@@ -45,6 +45,7 @@ function* fetchTask({ payload }) {
 
 function* fetchTasks({ payload }) {
   const {
+    case_id,
     assigned_to,
     assigned_by,
     is_completed,
@@ -55,6 +56,7 @@ function* fetchTasks({ payload }) {
     const TaskRepo = new TaskRepositoryImpl();
     const TaskService = new TaskServiceImpl(TaskRepo);
     const response = yield TaskService.GetAll(
+      case_id,
       assigned_to,
       assigned_by,
       is_completed,

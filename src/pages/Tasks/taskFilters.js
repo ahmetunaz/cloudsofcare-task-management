@@ -10,12 +10,9 @@ import {
   Label,
   Row,
 } from "reactstrap";
-import { PaymentStatuses } from "core/entities/Task/TaskTypes";
 import DatePicker from "react-datepicker";
 import Select from "react-select";
 import "react-datepicker/dist/react-datepicker.css";
-import { useDataSource } from "hooks/useDataSource";
-import { getUsers } from "store/actions";
 import { usersToSelectOptions } from "helpers/utils";
 
 const DateInput = forwardRef(({ value, onClick }, ref) => (
@@ -35,15 +32,9 @@ DateInput.propTypes = {
 
 DateInput.displayName = "DateInput";
 
-export const TaskFilters = ({ filters, users, onChange }) => {
+export const TaskFilters = ({ filters, users, cases, onChange }) => {
   const [newFilters, setNewFilters] = useState({ ...filters });
-  const {
-    assigned_to,
-    assigned_by,
-    is_completed,
-    created_at_gte,
-    created_at_lte,
-  } = newFilters;
+  const { is_completed, created_at_gte, created_at_lte } = newFilters;
 
   const handleOnChange = newFilter => {
     setNewFilters({
@@ -62,6 +53,22 @@ export const TaskFilters = ({ filters, users, onChange }) => {
         <Row>
           <Col>
             <FormGroup className="mb-2 me-sm-2 mb-sm-0">
+              <Label className="me-sm-2" for="case_id">
+                Case
+              </Label>
+              <Select
+                options={usersToSelectOptions(cases)}
+                onChange={option =>
+                  handleOnChange({
+                    case_id: option !== null ? Number(option.value) : null,
+                  })
+                }
+                isClearable
+              />
+            </FormGroup>
+          </Col>
+          <Col>
+            <FormGroup className="mb-2 me-sm-2 mb-sm-0">
               <Label className="me-sm-2" for="assigned_to">
                 Assigned To
               </Label>
@@ -69,9 +76,10 @@ export const TaskFilters = ({ filters, users, onChange }) => {
                 options={usersToSelectOptions(users)}
                 onChange={option =>
                   handleOnChange({
-                    assigned_to: Number(option.value),
+                    assigned_to: option !== null ? Number(option.value) : null,
                   })
                 }
+                isClearable
               />
             </FormGroup>
           </Col>
@@ -84,9 +92,10 @@ export const TaskFilters = ({ filters, users, onChange }) => {
                 options={usersToSelectOptions(users)}
                 onChange={option =>
                   handleOnChange({
-                    assigned_by: Number(option.value),
+                    assigned_by: option !== null ? Number(option.value) : null,
                   })
                 }
+                isClearable
               />
             </FormGroup>
           </Col>
@@ -173,5 +182,6 @@ export const TaskFilters = ({ filters, users, onChange }) => {
 TaskFilters.propTypes = {
   filters: PropTypes.object.isRequired,
   users: PropTypes.array.isRequired,
+  cases: PropTypes.array.isRequired,
   onChange: PropTypes.func.isRequired,
 };

@@ -11,6 +11,7 @@ import { serializeDTO } from "helpers/utils";
 
 export class TaskRepositoryImpl implements TaskRepository {
   async GetAll(
+    case_id: number,
     assigned_to: number,
     assigned_by: number,
     is_completed: boolean,
@@ -18,6 +19,7 @@ export class TaskRepositoryImpl implements TaskRepository {
     created_at_lte: string
   ): Promise<Task[]> {
     const items = await services.api.getTasks(
+      case_id,
       assigned_to,
       assigned_by,
       is_completed,

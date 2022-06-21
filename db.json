@@ -59,7 +59,7 @@
       "id": 1,
       "name": "Pennademy UI/UX Design",
       "description": "UI components will be designed depending on business analysis with Adobe XD",
-      "cases_id": 1,
+      "case_id": 1,
       "assigned_to": 1,
       "assigned_by": 2,
       "is_completed": false,

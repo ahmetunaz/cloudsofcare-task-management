@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { SimpleTable } from "components/SimpleTable";
 import { useDataSource } from "hooks/useDataSource";
-import { getTasks, getUsers } from "store/actions";
+import { getCases, getTasks, getUsers } from "store/actions";
 import { TaskDelete } from "./taskDelete";
 import Loading from "components/Loading/Index";
 import { Card, CardBody } from "reactstrap";
@@ -20,8 +20,8 @@ const tableColumns = [
     value: "Name",
   },
   {
-    key: "description",
-    value: "Description",
+    key: "case_id",
+    value: "Case",
   },
   {
     key: "assigned_to",
@@ -61,8 +61,10 @@ export const TaskList = ({ onRowClick }) => {
   const dispatch = useDispatch();
   const { tasks, loading } = useDataSource(getTasks, state => state.TaskState);
   const { users } = useDataSource(getUsers, state => state.UserState);
+  const { cases } = useDataSource(getCases, state => state.CaseState);
 
   const [filters, setFilters] = useState({
+    case_id: null,
     assigned_to: null,
     assigned_by: null,
     is_completed: null,
@@ -82,13 +84,21 @@ export const TaskList = ({ onRowClick }) => {
 
   return (
     <>
-      <TaskFilters onChange={setFilters} filters={filters} users={users} />
+      <TaskFilters
+        onChange={setFilters}
+        filters={filters}
+        users={users}
+        cases={cases}
+      />
 
       <Card>
         <CardBody>
           <SimpleTable
             columns={tableColumns}
             rows={tasks.map(task => {
+              const taskCase =
+                cases.length > 0 &&
+                cases.find(case_ => case_.id === task.case_id);
               const taskUser =
                 users.length > 0 &&
                 users.find(user => user.id === task.assigned_to);
@@ -97,6 +107,7 @@ export const TaskList = ({ onRowClick }) => {
                 users.find(user => user.id === task.assigned_by);
               return {
                 ...task,
+                case_id: taskCase?.name || task.case_id,
                 assigned_to: taskUser?.name || task.assigned_to,
                 assigned_by: taskAssigner?.name || task.assigned_by,
               };
