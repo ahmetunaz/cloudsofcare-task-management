@@ -7,7 +7,7 @@ export interface TaskService {
   GetById(id: number): Promise<Task>;
   Create(data: CreateTaskDTO): Promise<Task>;
   Update(data: UpdateTaskDTO): Promise<Task>;
-  Delete(id: number): Promise<Task>;
+  Delete(id: number): Promise<number>;
 }
 
 export class TaskServiceImpl implements TaskService {
@@ -33,7 +33,7 @@ export class TaskServiceImpl implements TaskService {
     return this.taskRepo.Update(data);
   }
 
-  async Delete(id: number): Promise<Task> {
+  async Delete(id: number): Promise<number> {
     return this.taskRepo.Delete(id);
   }
 }

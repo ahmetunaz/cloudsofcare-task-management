@@ -1,4 +1,5 @@
 import { UpdateTaskDTO } from "core/entities/Task/TaskTypes";
+import moment from "moment";
 import { client } from "../../HttpClient";
 
 export const getTask = async (id: number): Promise<any> => {
@@ -24,7 +25,13 @@ export const getTasks = async (): Promise<any> => {
 };
 
 export const createTask = async (payload: object): Promise<any> => {
-  const response = await client.post("tasks", payload);
+  const postData = {
+    ...payload,
+    is_completed: false,
+    completed_at: null,
+    created_at: moment(),
+  };
+  const response = await client.post("tasks", postData);
 
   const { data, status } = response;
 
@@ -36,7 +43,11 @@ export const createTask = async (payload: object): Promise<any> => {
 };
 
 export const updateTask = async (payload: UpdateTaskDTO): Promise<any> => {
-  const response = await client.put(`tasks/${payload.id}`, payload);
+  const postData = {
+    ...payload,
+    completed_at: payload.is_completed ? moment() : null,
+  };
+  const response = await client.put(`tasks/${payload.id}`, postData);
 
   const { data, status } = response;
 

@@ -50,7 +50,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "server": "json-server --watch db.json --port 5000 --delay 1000",
+    "server": "json-server --watch db.json --port 5000 --delay 500",
     "build": "react-scripts build",
     "lint": "eslint .",
     "format": "prettier --write \"**/*.{js,jsx,json,md,html,css,less,scss}\"",

@@ -6,5 +6,5 @@ export interface TaskRepository {
   GetById(id: number): Promise<Task>;
   Create(data: CreateTaskDTO): Promise<Task>;
   Update(data: UpdateTaskDTO): Promise<Task>;
-  Delete(id: number): Promise<Task>;
+  Delete(id: number): Promise<number>;
 }

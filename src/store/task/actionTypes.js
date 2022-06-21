@@ -1,0 +1,23 @@
+export const GET_TASKS = "GET_TASKS";
+export const GET_TASKS_SUCCESS = "GET_TASKS_SUCCESS";
+export const GET_TASKS_FAIL = "GET_TASKS_FAIL";
+
+export const GET_TASK = "GET_TASK";
+export const GET_TASK_SUCCESS = "GET_TASK_SUCCESS";
+export const GET_TASK_FAIL = "GET_TASK_FAIL";
+
+export const CREATE_TASK = "CREATE_TASK";
+export const CREATE_TASK_SUCCESS = "CREATE_TASK_SUCCESS";
+export const CREATE_TASK_FAIL = "CREATE_TASK_FAIL";
+
+export const UPDATE_TASK = "UPDATE_TASK";
+export const UPDATE_TASK_SUCCESS = "UPDATE_TASK_SUCCESS";
+export const UPDATE_TASK_FAIL = "UPDATE_TASK_FAIL";
+
+export const DELETE_TASK = "DELETE_TASK";
+export const DELETE_TASK_SUCCESS = "DELETE_TASK_SUCCESS";
+export const DELETE_TASK_FAIL = "DELETE_TASK_FAIL";
+
+export const RESET_STATE = "RESET_STATE";
+
+export const RESET_STATUS = "RESET_STATUS";

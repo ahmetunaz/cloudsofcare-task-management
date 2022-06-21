@@ -47,6 +47,8 @@ export class TaskRepositoryImpl implements TaskRepository {
 
   async Create(data: CreateTaskDTO): Promise<Task> {
     const serializedData = serializeDTO(CreateTaskDTO, data);
+    console.log("data", data);
+    console.log("serializedData", serializedData);
 
     const item: TaskDTO = await services.api.createTask(serializedData);
     return new Task(
@@ -79,9 +81,9 @@ export class TaskRepositoryImpl implements TaskRepository {
     );
   }
 
-  async Delete(id: number): Promise<Task> {
+  async Delete(id: number): Promise<number> {
     await services.api.deleteTask(id);
 
-    return new TaskDTO();
+    return id;
   }
 }

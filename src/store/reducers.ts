@@ -8,12 +8,18 @@ import ErrorHandlerState from "./error-handler/reducer";
 
 import CaseState from "./case/reducer";
 
+import TaskState from "./task/reducer";
+
+import UserState from "./user/reducer";
+
 const rootReducer = combineReducers({
   // public
   Auth,
   Layout,
   ErrorHandlerState,
   CaseState,
+  TaskState,
+  UserState,
 });
 
 export default rootReducer;
