@@ -47,6 +47,7 @@ Running steps of project for development purpose.
    ```sh
    yarn server
    ```
+   or
    ```sh
    npm run server
    ```
