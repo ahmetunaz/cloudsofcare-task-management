@@ -31,15 +31,13 @@ export const getDashboardData = async (userId: number): Promise<any> => {
   // The number of cases with tasks (casewithtask)
   const numberOfCasesWithTasks = getNumberOfCasesWithTasks(tasks);
 
-  console.log(
-    userCurrentTasks,
-    userAssignments,
-    userTasks,
-    tasksPerCase,
-    numberOfCasesWithTasks
-  );
-
-  throw "An error occurred! Please try again later.";
+  return {
+    userCurrentTasks: userCurrentTasks,
+    userAssignments: userAssignments,
+    userTasks: userTasks,
+    taskPerCases: tasksPerCase,
+    caseWithTask: numberOfCasesWithTasks,
+  };
 };
 
 const get = async (url: string): Promise<any> => {
