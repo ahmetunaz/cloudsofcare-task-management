@@ -64,13 +64,13 @@ Running steps of project for development purpose.
 
 You can use these user credentials to sign in with different roles to test the system with ready to use data.
 
-ADMIN USER:
-Email: demouser@cloudsofcare.com
-Password: 123123
+ADMIN USER:<br />
+Email: demouser@cloudsofcare.com<br />
+Password: 123123<br />
 
-MEMBER:
-Email: ahmet@cloudsofcare.com
-Password: 123123
+MEMBER:<br />
+Email: ahmet@cloudsofcare.com<br />
+Password: 123123<br />
 
 or
 
